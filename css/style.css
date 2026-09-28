@@ -1,5 +1,5 @@
 ﻿/* =========================================================
-   STACKLY â€” Digital Marketing Theme
+   STACKLY - Digital Marketing Theme
    Tech-logic style: dark glassmorphism + neon gradients + 3D
    Responsive: desktop / laptop / tablet / mobile
    ========================================================= */
@@ -784,6 +784,7 @@ img {
 .cards-3d-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 1fr;
   gap: 26px;
   perspective: var(--persp);
 }
@@ -797,6 +798,8 @@ img {
   cursor: pointer;
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
   transition:
     opacity 0.9s var(--ease),
     transform 0.4s var(--ease),
@@ -827,6 +830,13 @@ img {
 
 .card-3d:hover::before {
   opacity: 1;
+}
+
+.card-3d-inner {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
 }
 
 .card-img {
@@ -871,6 +881,8 @@ img {
 .card-3d h3 {
   font-size: 1.22rem;
   margin-bottom: 12px;
+  min-height: 2.3em;
+  min-height: 2lh;
   transform: translateZ(22px);
 }
 
@@ -885,6 +897,9 @@ img {
   color: var(--accent);
   font-weight: 700;
   font-size: 0.9rem;
+  margin-top: auto;
+  align-self: flex-start;
+  transform: translateZ(14px);
 }
 
 /* ---------- About ---------- */
@@ -1199,11 +1214,11 @@ img {
   font-size: 0.98rem;
   color: var(--text);
   margin-bottom: 24px;
-  quotes: "â€œ" "â€";
+  quotes: "\201C" "\201D";
 }
 
 .testi-card blockquote::before {
-  content: open-quote;
+  content: "\201C";
   font-family: var(--font-head);
   font-size: 1.6rem;
   color: var(--primary);
@@ -1327,7 +1342,7 @@ img {
 }
 
 .price-card li::before {
-  content: "âœ“";
+  content: "\2713";
   position: absolute;
   left: 0;
   color: var(--accent);
@@ -1566,7 +1581,7 @@ a.cta-card:hover {
 }
 
 .faq-item[open] summary::after {
-  content: "âˆ’";
+  content: "\2212";
   transform: translateY(-50%) rotate(180deg);
   background: rgba(124, 92, 255, 0.18);
   border-color: rgba(124, 92, 255, 0.6);
@@ -1672,7 +1687,7 @@ a.cta-card:hover {
    RESPONSIVE BREAKPOINTS
    ========================================================= */
 
-/* ---------- Laptop (â‰¤ 1200px) ---------- */
+/* ---------- Laptop (<= 1200px) ---------- */
 @media (max-width: 1200px) {
   .container { width: min(var(--container), 94%); }
   .hero-inner, .about-inner, .cta-inner { gap: 40px; }
@@ -1681,7 +1696,7 @@ a.cta-card:hover {
   .chip-2 { left: -12px; }
 }
 
-/* ---------- Tablet (â‰¤ 992px) ---------- */
+/* ---------- Tablet (<= 992px) ---------- */
 @media (max-width: 992px) {
   .nav-login, .nav-register { display: none; }
 
@@ -1706,7 +1721,7 @@ a.cta-card:hover {
   .about-visual { max-width: 480px; margin: 0 auto; }
 }
 
-/* ---------- Mobile (â‰¤ 768px) ---------- */
+/* ---------- Mobile (<= 768px) ---------- */
 @media (max-width: 768px) {
   .section { padding: 78px 0; }
 
@@ -1741,6 +1756,9 @@ a.cta-card:hover {
   .testi-grid,
   .pricing-grid { grid-template-columns: 1fr; gap: 22px; }
 
+  .card-3d h3 { min-height: 0; }
+
+
   .process-grid { grid-template-columns: 1fr; }
   .faq-grid,
   .cta-cards { grid-template-columns: 1fr; gap: 14px; }
@@ -1751,7 +1769,7 @@ a.cta-card:hover {
   .hero-card, .about-card { padding: 22px; }
 }
 
-/* ---------- Small phones (â‰¤ 480px) ---------- */
+/* ---------- Small phones (<= 480px) ---------- */
 @media (max-width: 480px) {
   .hero-content h1 { font-size: 1.75rem; }
   .brand-logo { height: 30px; }
@@ -2572,7 +2590,7 @@ input[aria-invalid="true"]:focus {
 }
 
 .auth-points li::before {
-  content: "âœ“";
+  content: "\2713";
   position: absolute;
   left: 0;
   top: 0;
@@ -2699,7 +2717,7 @@ input[aria-invalid="true"]:focus {
 
 /* =========================================================
    PAGE RESPONSIVE
-   Desktop  â‰¥1200 Â· Laptop â‰¤1200 Â· Tablet â‰¤992 Â· Mobile â‰¤768
+   Desktop  >=1200 - Laptop <=1200 - Tablet <=992 - Mobile <=768
    ========================================================= */
 @media (max-width: 1200px) {
   .page-hero { padding: calc(var(--nav-h) + 62px) 0 56px; }
@@ -2828,8 +2846,8 @@ input[aria-invalid="true"]:focus {
 }
 
 /* =========================================================
-   DASHBOARD SHELL â€” admin + client
-   Desktop â‰¥1200 Â· laptop 1024â€“1199 Â· tablet 768â€“1023 Â· mobile â‰¤767
+   DASHBOARD SHELL - admin + client
+   Desktop >=1200 - laptop 1024-1199 - tablet 768-1023 - mobile <=767
    ========================================================= */
 .dash {
   --side-w: 268px;
@@ -3415,7 +3433,10 @@ input[aria-invalid="true"]:focus {
   border-radius: 50%;
   display: grid;
   place-content: center;
-  background: conic-gradient(var(--primary) 0 var(--pct)%, rgba(255, 255, 255, 0.08) var(--pct)% 100%);
+  background: conic-gradient(
+    var(--primary) 0 calc(var(--pct) * 1%),
+    rgba(255, 255, 255, 0.08) calc(var(--pct) * 1%) 100%
+  );
   position: relative;
 }
 
@@ -3738,7 +3759,7 @@ input[aria-invalid="true"]:focus {
   color: var(--text-dim);
 }
 
-/* ---------- Laptop 1024â€“1199 ---------- */
+/* ---------- Laptop 1024-1199 ---------- */
 @media (max-width: 1199px) {
   .dash { --side-w: 228px; }
   .dash-search input { width: 180px; }
@@ -3746,7 +3767,7 @@ input[aria-invalid="true"]:focus {
   .dash-kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
-/* ---------- Tablet 768â€“1023: off-canvas drawer ---------- */
+/* ---------- Tablet 768-1023: off-canvas drawer ---------- */
 @media (max-width: 1023px) {
   .dash {
     grid-template-columns: minmax(0, 1fr);
@@ -3789,7 +3810,7 @@ input[aria-invalid="true"]:focus {
   .dash-search { display: none; }
 }
 
-/* ---------- Mobile â‰¤767 ---------- */
+/* ---------- Mobile <=767 ---------- */
 @media (max-width: 767px) {
   .dash { --top-h: 66px; }
   .dash-top { padding: 10px 16px; gap: 12px; }
