@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en" class="dash-page">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Stackly admin dashboard — revenue, client health, campaign delivery and team workload across every managed account.">
+  <title>Admin Dashboard — Stackly Agency OS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/webp" href="images/logo.webp">
+</head>
+<body>
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id="sparkGrad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#7c5cff" stop-opacity="0.45"/>
+        <stop offset="100%" stop-color="#37e6c0" stop-opacity="0"/>
+      </linearGradient>
+    </defs>
+  </svg>
+
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <div class="dash" id="dash">
+    <div class="dash-scrim" id="dashScrim"></div>
+
+    <!-- ===================== SIDEBAR ===================== -->
+    <aside class="dash-side" id="dashSide">
+      <div class="dash-side-head">
+        <a href="index.html" class="brand"><img src="images/logo.webp" alt="Stackly logo" class="brand-logo"></a>
+        <span class="dash-role">Admin</span>
+      </div>
+
+      <span class="dash-nav-label">Workspace</span>
+      <a class="dash-link active" href="admin-dashboard.html" aria-current="page">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 3h8v8H3V3Zm10 0h8v5h-8V3ZM3 13h8v8H3v-8Zm10 3h8v5h-8v-5Z"/></svg>
+        Overview
+      </a>
+      <a class="dash-link" href="admin-dashboard.html#clients">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M16 11a4 4 0 1 0-4-4 4 4 0 0 0 4 4Zm-8 1a3.5 3.5 0 1 0-3.5-3.5A3.5 3.5 0 0 0 8 12Zm8 1c-2.7 0-8 1.3-8 4v3h16v-3c0-2.7-5.3-4-8-4ZM8 13c-2.3 0-6 1.2-6 3.5V19h5v-3c0-1 .4-2 1.2-3Z"/></svg>
+        Clients <span class="dash-count">3</span>
+      </a>
+      <a class="dash-link" href="admin-campaigns.html">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 17h3l2 4h2l-2-4 9 1 4-4V6l-4 4-9 1 2-4H5L3 11v6Z"/></svg>
+        Campaigns
+      </a>
+      <a class="dash-link" href="admin-reports.html">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 20h16v2H4v-2Zm2-3h3v-6H6v6Zm5 0h3V5h-3v12Zm5 0h3v-9h-3v9Z"/></svg>
+        Reports
+      </a>
+      <a class="dash-link" href="admin-invoices.html">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 2h9l5 5v15l-3-2-2 2-2-2-2 2-2-2-3 2V2Zm8 2v4h4l-4-4Z"/></svg>
+        Invoices <span class="dash-count">2</span>
+      </a>
+      <a class="dash-link" href="admin-client-view.html">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5Zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5Z"/></svg>
+        Client view
+      </a>
+
+      <span class="dash-nav-label">Account</span>
+      <a class="dash-link" href="admin-team.html">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 8a4 4 0 1 0 4 4 4 4 0 0 0-4-4Zm9 4a8.9 8.9 0 0 1-.1 1.3l2.1 1.6-2 3.5-2.5-1a8.6 8.6 0 0 1-2.2 1.3l-.4 2.6h-4l-.4-2.6a8.6 8.6 0 0 1-2.2-1.3l-2.5 1-2-3.5L5.1 13a8.9 8.9 0 0 1 0-2.6L3 8.8l2-3.5 2.5 1a8.6 8.6 0 0 1 2.2-1.3L10.1 2h4l.4 2.6a8.6 8.6 0 0 1 2.2 1.3l2.5-1 2 3.5-2.1 1.6a8.9 8.9 0 0 1-.1 1.3Z"/></svg>
+        Team
+      </a>
+      <a class="dash-link" href="admin-settings.html">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 15.5A3.5 3.5 0 1 1 15.5 12 3.5 3.5 0 0 1 12 15.5Zm7.4-2.6.1-1-.1-1 2-1.6-2-3.4-2.4.9a7 7 0 0 0-1.7-1L14.9 3H9.1l-.4 2.8a7 7 0 0 0-1.7 1l-2.4-.9-2 3.4L4.7 11a8 8 0 0 0 0 2l-2.1 1.6 2 3.4 2.4-.9a7 7 0 0 0 1.7 1l.4 2.8h5.8l.4-2.8a7 7 0 0 0 1.7-1l2.4.9 2-3.4-2-1.6Z"/></svg>
+        Settings
+      </a>
+
+      <div class="dash-side-foot">
+        <div class="dash-user">
+          <span class="dash-avatar">RR</span>
+          <span class="dash-user-meta"><b>Riley Rowe</b><span>Agency owner</span></span>
+        </div>
+        <a class="dash-back" href="index.html">&larr; Back to stackly.agency</a>
+      </div>
+    </aside>
+
+    <!-- ===================== MAIN ===================== -->
+    <div class="dash-main">
+      <header class="dash-top">
+        <button class="dash-burger" id="dashBurger" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="dashSide"><span></span></button>
+        <div class="dash-title">
+          <h1>Agency overview</h1>
+          <p>All 14 accounts &middot; updated 4 minutes ago</p>
+        </div>
+        <div class="dash-top-actions">
+          <label class="dash-search">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15.5 14h-.8l-.3-.3a6.5 6.5 0 1 0-.7.7l.3.3v.8l5 5 1.5-1.5-5-5Zm-6 0a4.5 4.5 0 1 1 4.5-4.5 4.5 4.5 0 0 1-4.5 4.5Z"/></svg>
+            <input type="search" placeholder="Search clients, campaigns…" aria-label="Search clients and campaigns">
+          </label>
+          <button class="dash-icon-btn" type="button" aria-label="Notifications">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 22a2.5 2.5 0 0 0 2.5-2.5h-5A2.5 2.5 0 0 0 12 22Zm7-6v-5a7 7 0 0 0-5.5-6.8V3.5a1.5 1.5 0 0 0-3 0v.7A7 7 0 0 0 5 11v5l-2 2v1h18v-1l-2-2Z"/></svg>
+            <i class="dash-dot"></i>
+          </button>
+          <a class="btn btn-ghost" href="login.html">Sign out</a>
+        </div>
+      </header>
+
+      <div class="dash-body">
+        <ul class="dash-chips" id="dashRange">
+          <li><button class="dash-chip" type="button" data-range="30">30 days</button></li>
+          <li><button class="dash-chip active" type="button" data-range="90">90 days</button></li>
+          <li><button class="dash-chip" type="button" data-range="365">12 months</button></li>
+        </ul>
+
+        <div class="dash-kpis" id="dashKpis">
+          <article class="dash-kpi reveal-up animate">
+            <div class="dash-kpi-label">
+              Managed revenue
+              <span class="dash-kpi-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm1 15h-2v-1.2a3.5 3.5 0 0 1-3-3.4h2a1.5 1.5 0 0 0 3 1.2 1.5 1.5 0 0 0-1.5-1.2 3.5 3.5 0 0 1-3-3.4 1.5 1.5 0 0 0 1-1.3V6h2v1.2a3.5 3.5 0 0 1 3 3.4h-2a1.5 1.5 0 0 0-3-1.2 1.5 1.5 0 0 0 1.5 1.2 3.5 3.5 0 0 1 3 3.4 1.5 1.5 0 0 0-1 1.3V17Z"/></svg></span>
+            </div>
+            <b class="dash-kpi-value">$284,600</b>
+            <div class="dash-kpi-foot"><span class="dash-delta up">&uarr; 18.4%</span> vs last period</div>
+            <svg class="dash-spark" viewBox="0 0 120 34" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+              <polygon class="spark-fill" points="0,34 0,26 15,24 30,27 45,19 60,21 75,13 90,15 105,8 120,10 120,34"/>
+              <polyline points="0,26 15,24 30,27 45,19 60,21 75,13 90,15 105,8 120,10"/>
+            </svg>
+          </article>
+
+          <article class="dash-kpi reveal-up animate">
+            <div class="dash-kpi-label">
+              Active clients
+              <span class="dash-kpi-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M16 11a4 4 0 1 0-4-4 4 4 0 0 0 4 4Zm-8 1a3.5 3.5 0 1 0-3.5-3.5A3.5 3.5 0 0 0 8 12Zm8 1c-2.7 0-8 1.3-8 4v3h16v-3c0-2.7-5.3-4-8-4Z"/></svg></span>
+            </div>
+            <b class="dash-kpi-value">14</b>
+            <div class="dash-kpi-foot"><span class="dash-delta up">&uarr; 2 new</span> this quarter</div>
+            <svg class="dash-spark" viewBox="0 0 120 34" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+              <polygon class="spark-fill" points="0,34 0,30 15,29 30,29 45,24 60,20 75,18 90,12 105,12 120,6 120,34"/>
+              <polyline points="0,30 15,29 30,29 45,24 60,20 75,18 90,12 105,12 120,6"/>
+            </svg>
+          </article>
+
+          <article class="dash-kpi reveal-up animate">
+            <div class="dash-kpi-label">
+              Ad spend managed
+              <span class="dash-kpi-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8Zm0-14a6 6 0 1 0 6 6 6 6 0 0 0-6-6Zm0 10a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm0-6a2 2 0 1 0 2 2 2 2 0 0 0-2-2Z"/></svg></span>
+            </div>
+            <b class="dash-kpi-value">$1.42M</b>
+            <div class="dash-kpi-foot"><span class="dash-delta up">&uarr; 9.1%</span> across 38 campaigns</div>
+            <svg class="dash-spark" viewBox="0 0 120 34" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+              <polygon class="spark-fill" points="0,34 0,28 15,25 30,27 45,20 60,22 75,15 90,14 105,9 120,11 120,34"/>
+              <polyline points="0,28 15,25 30,27 45,20 60,22 75,15 90,14 105,9 120,11"/>
+            </svg>
+          </article>
+
+          <article class="dash-kpi reveal-up animate">
+            <div class="dash-kpi-label">
+              Blended ROAS
+              <span class="dash-kpi-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 17h3l2 4h2l-2-4 9 1 4-4V6l-4 4-9 1 2-4H5L3 11v6Z"/></svg></span>
+            </div>
+            <b class="dash-kpi-value">4.6x</b>
+            <div class="dash-kpi-foot"><span class="dash-delta down">&darr; 0.3x</span> one account slipping</div>
+            <svg class="dash-spark" viewBox="0 0 120 34" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+              <polygon class="spark-fill" points="0,34 0,10 15,12 30,9 45,15 60,13 75,19 90,17 105,23 120,21 120,34"/>
+              <polyline points="0,10 15,12 30,9 45,15 60,13 75,19 90,17 105,23 120,21"/>
+            </svg>
+          </article>
+        </div>
+
+        <div class="dash-chart" id="reports">
+          <section class="dash-card reveal-up animate">
+            <div class="dash-card-head">
+              <h3>Revenue vs ad spend</h3>
+              <span>Monthly, in thousands</span>
+            </div>
+            <div class="dash-bars">
+              <div class="dash-bar-col"><div class="dash-bar" style="height:38%"></div><span class="dash-bar-label">Jan</span></div>
+              <div class="dash-bar-col"><div class="dash-bar" style="height:44%"></div><span class="dash-bar-label">Feb</span></div>
+              <div class="dash-bar-col"><div class="dash-bar" style="height:41%"></div><span class="dash-bar-label">Mar</span></div>
+              <div class="dash-bar-col"><div class="dash-bar" style="height:52%"></div><span class="dash-bar-label">Apr</span></div>
+              <div class="dash-bar-col"><div class="dash-bar" style="height:58%"></div><span class="dash-bar-label">May</span></div>
+              <div class="dash-bar-col"><div class="dash-bar" style="height:55%"></div><span class="dash-bar-label">Jun</span></div>
+              <div class="dash-bar-col"><div class="dash-bar" style="height:66%"></div><span class="dash-bar-label">Jul</span></div>
+              <div class="dash-bar-col"><div class="dash-bar" style="height:72%"></div><span class="dash-bar-label">Aug</span></div>
+              <div class="dash-bar-col"><div class="dash-bar" style="height:69%"></div><span class="dash-bar-label">Sep</span></div>
+              <div class="dash-bar-col"><div class="dash-bar" style="height:80%"></div><span class="dash-bar-label">Oct</span></div>
+              <div class="dash-bar-col"><div class="dash-bar" style="height:87%"></div><span class="dash-bar-label">Nov</span></div>
+              <div class="dash-bar-col"><div class="dash-bar" style="height:100%"></div><span class="dash-bar-label">Dec</span></div>
+            </div>
+          </section>
+
+          <section class="dash-card reveal-up animate">
+            <div class="dash-card-head">
+              <h3>Revenue mix</h3>
+              <span>By service line</span>
+            </div>
+            <div class="dash-donut-wrap">
+              <div class="dash-donut" style="--pct:46"><b>46%</b></div>
+              <div class="dash-legend">
+                <div><i></i><span>Performance ads</span><b>$131k</b></div>
+                <div><i></i><span>SEO &amp; content</span><b>$79k</b></div>
+                <div><i></i><span>Lifecycle</span><b>$74k</b></div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <div class="dash-split">
+          <section class="dash-card reveal-up animate" id="team">
+            <div class="dash-card-head">
+              <h3>Team activity</h3>
+              <span>Last 24 hours</span>
+            </div>
+            <ul class="dash-feed">
+              <li><i></i><span><b>Mara shipped the fintech creative refresh</b><span>12 new variants live in Google Ads &middot; 2h ago</span></span></li>
+              <li><i></i><span><b>Dev closed 6 technical SEO tickets</b><span>Core Web Vitals passing on 4 client sites &middot; 5h ago</span></span></li>
+              <li><i></i><span><b>Jon flagged a CAC spike on Leaf &amp; Co.</b><span>Cost per lead up 38% week over week &middot; 8h ago</span></span></li>
+              <li><i></i><span><b>Priya sent the Q3 roadmap to CloudDesk</b><span>Client replied with budget approval &middot; 11h ago</span></span></li>
+              <li><i></i><span><b>Sam recovered the lapsed NovaPay retainer</b><span>Signed a 6-month growth retainer &middot; 1d ago</span></span></li>
+            </ul>
+          </section>
+
+          <section class="dash-card reveal-up animate" id="invoices">
+            <div class="dash-card-head">
+              <h3>Needs your attention</h3>
+              <span>3 open</span>
+            </div>
+            <ul class="dash-tasks" id="dashTasks">
+              <li>
+                <button class="dash-check" type="button" aria-label="Mark as done"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2Z"/></svg></button>
+                <span>Approve October invoices (2)</span>
+                <span class="dash-task-when">Today</span>
+              </li>
+              <li>
+                <button class="dash-check" type="button" aria-label="Mark as done"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2Z"/></svg></button>
+                <span>Review Leaf &amp; Co. budget re-forecast</span>
+                <span class="dash-task-when">Today</span>
+              </li>
+              <li>
+                <button class="dash-check" type="button" aria-label="Mark as done"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2Z"/></svg></button>
+                <span>Sign off the CloudDesk Q4 scope</span>
+                <span class="dash-task-when">Tomorrow</span>
+              </li>
+              <li class="done">
+                <button class="dash-check" type="button" aria-label="Mark as not done"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2Z"/></svg></button>
+                <span>Hire the second paid-media strategist</span>
+                <span class="dash-task-when">Done</span>
+              </li>
+            </ul>
+          </section>
+        </div>
+
+        <section class="dash-card reveal-up animate" id="clients">
+          <div class="dash-card-head">
+            <h3>Client accounts</h3>
+            <span>14 accounts &middot; sorted by health</span>
+          </div>
+          <div class="dash-table-wrap">
+            <table class="dash-table">
+              <thead>
+                <tr>
+                  <th>Client</th>
+                  <th>Plan</th>
+                  <th>MRR</th>
+                  <th>Ad spend</th>
+                  <th>Health</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td data-label="">
+                    <span class="dash-cell-user">
+                      <span class="dash-mini" style="background:linear-gradient(135deg,#7c5cff,#4d8dff)">NP</span>
+                      <span><b>NovaPay</b><span>Fintech &middot; 7 months</span></span>
+                    </span>
+                  </td>
+                  <td data-label="Plan">Growth+</td>
+                  <td data-label="MRR">$24,000</td>
+                  <td data-label="Ad spend">$186,400</td>
+                  <td data-label="Health">
+                    <span class="dash-progress">
+                      <span class="dash-progress-head"><span>On track</span><b>94%</b></span>
+                      <span class="dash-progress-track"><i style="width:94%"></i></span>
+                    </span>
+                  </td>
+                  <td data-label="Status"><span class="dash-status live">Live</span></td>
+                </tr>
+                <tr>
+                  <td data-label="">
+                    <span class="dash-cell-user">
+                      <span class="dash-mini" style="background:linear-gradient(135deg,#37e6c0,#4d8dff)">LC</span>
+                      <span><b>Leaf &amp; Co.</b><span>E-commerce &middot; 4 months</span></span>
+                    </span>
+                  </td>
+                  <td data-label="Plan">Growth</td>
+                  <td data-label="MRR">$12,500</td>
+                  <td data-label="Ad spend">$94,200</td>
+                  <td data-label="Health">
+                    <span class="dash-progress">
+                      <span class="dash-progress-head"><span>Watch CAC</span><b>68%</b></span>
+                      <span class="dash-progress-track"><i style="width:68%"></i></span>
+                    </span>
+                  </td>
+                  <td data-label="Status"><span class="dash-status review">In review</span></td>
+                </tr>
+                <tr>
+                  <td data-label="">
+                    <span class="dash-cell-user">
+                      <span class="dash-mini" style="background:linear-gradient(135deg,#4d8dff,#37e6c0)">CD</span>
+                      <span><b>CloudDesk</b><span>SaaS &middot; 11 months</span></span>
+                    </span>
+                  </td>
+                  <td data-label="Plan">Scale</td>
+                  <td data-label="MRR">$18,000</td>
+                  <td data-label="Ad spend">$142,800</td>
+                  <td data-label="Health">
+                    <span class="dash-progress">
+                      <span class="dash-progress-head"><span>On track</span><b>88%</b></span>
+                      <span class="dash-progress-track"><i style="width:88%"></i></span>
+                    </span>
+                  </td>
+                  <td data-label="Status"><span class="dash-status live">Live</span></td>
+                </tr>
+                <tr>
+                  <td data-label="">
+                    <span class="dash-cell-user">
+                      <span class="dash-mini" style="background:linear-gradient(135deg,#ffc84d,#ff5c7c)">HT</span>
+                      <span><b>Hearth &amp; Table</b><span>Retail &middot; 2 months</span></span>
+                    </span>
+                  </td>
+                  <td data-label="Plan">Starter</td>
+                  <td data-label="MRR">$6,000</td>
+                  <td data-label="Ad spend">$31,500</td>
+                  <td data-label="Health">
+                    <span class="dash-progress">
+                      <span class="dash-progress-head"><span>Needs input</span><b>42%</b></span>
+                      <span class="dash-progress-track"><i style="width:42%"></i></span>
+                    </span>
+                  </td>
+                  <td data-label="Status"><span class="dash-status risk">At risk</span></td>
+                </tr>
+                <tr>
+                  <td data-label="">
+                    <span class="dash-cell-user">
+                      <span class="dash-mini" style="background:linear-gradient(135deg,#a5aacb,#7c5cff)">QF</span>
+                      <span><b>Quillform</b><span>B2B SaaS &middot; 1 month</span></span>
+                    </span>
+                  </td>
+                  <td data-label="Plan">Starter</td>
+                  <td data-label="MRR">$4,500</td>
+                  <td data-label="Ad spend">$12,200</td>
+                  <td data-label="Health">
+                    <span class="dash-progress">
+                      <span class="dash-progress-head"><span>Onboarding</span><b>55%</b></span>
+                      <span class="dash-progress-track"><i style="width:55%"></i></span>
+                    </span>
+                  </td>
+                  <td data-label="Status"><span class="dash-status paused">Paused</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <div class="dash-note reveal-up animate" id="campaigns">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2a7 7 0 0 0-4 12.7V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.3A7 7 0 0 0 12 2Zm-2 18h4v1.5h-4V20Z"/></svg>
+          <div>
+            <b>One account needs a decision this week</b>
+            <p>Hearth &amp; Table is 58 days into onboarding with paid media still paused. Approve the extra $4k monthly budget or move them to a maintenance plan before the 30th.</p>
+          </div>
+        </div>
+
+        <section class="dash-card reveal-up animate" id="settings">
+          <div class="dash-card-head">
+            <h3>Workspace settings</h3>
+            <span>Applies to all 14 accounts</span>
+          </div>
+          <ul class="dash-feed">
+            <li><i></i><span><b>Default attribution window</b><span>7-day click, 1-day view &middot; last changed 12d ago</span></span></li>
+            <li><i></i><span><b>Client reporting cadence</b><span>Live dashboard, monthly summary on the 1st</span></span></li>
+            <li><i></i><span><b>Budget alert threshold</b><span>Notify the account owner at 85% of monthly spend</span></span></li>
+            <li><i></i><span><b>Team access</b><span>9 members &middot; 2 pending invitations</span></span></li>
+          </ul>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

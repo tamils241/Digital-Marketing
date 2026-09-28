@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Log in to your Stackly client dashboard — live revenue, CAC, ROAS and pipeline in one place.">
+  <title>Login — Stackly Client Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/webp" href="images/logo.webp">
+</head>
+<body>
+
+  <div class="preloader" id="preloader">
+    <div class="preloader-logo">stackly<span class="dot">.</span></div>
+    <div class="preloader-bar"><span></span></div>
+  </div>
+
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+
+  <main class="auth-wrap">
+    <a href="index.html" class="container auth-brand" aria-label="Stackly — back to homepage">
+      <img src="images/logo.webp" alt="Stackly logo" class="brand-logo">
+    </a>
+
+    <div class="hero-bg" aria-hidden="true">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="grid-overlay"></div>
+    </div>
+
+    <div class="container auth-split">
+      <div class="auth-side reveal-up animate">
+        <span class="kicker">Client portal</span>
+        <h2>Your whole growth engine, <span class="grad-text">in one dashboard</span></h2>
+        <p>Log in to see revenue, CAC, ROAS and pipeline live — the same numbers we see, with no layer of translation in between.</p>
+        <ul class="auth-points">
+          <li>Live revenue attribution across every active channel</li>
+          <li>CAC, ROAS and payback period updated hourly</li>
+          <li>Weekly strategy call notes and the current test roadmap</li>
+          <li>Direct access to your ad accounts, analytics and assets</li>
+        </ul>
+        <div class="auth-mini">
+          <div><b>435</b><span>Projects</span></div>
+          <div><b>98%</b><span>Retention</span></div>
+          <div><b>14d</b><span>To first win</span></div>
+        </div>
+      </div>
+
+      <div class="form-card reveal-up animate">
+        <h1>Welcome back</h1>
+        <p class="form-lead">Log in to your Stackly client dashboard.</p>
+
+        <form id="loginForm" novalidate>
+          <div class="form-group">
+            <label>Account type</label>
+            <div class="role-picker">
+              <label class="role-option">
+                <input type="radio" name="role" value="client" checked>
+                <span>Client</span>
+              </label>
+              <label class="role-option">
+                <input type="radio" name="role" value="admin">
+                <span>Admin</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Work email</label>
+            <input type="email" id="email" name="email" placeholder="alex@company.com" inputmode="email" autocapitalize="off" spellcheck="false" required autocomplete="email">
+            <small class="form-hint" id="emailHint">Use the email you registered with.</small>
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="••••••••" required autocomplete="current-password" minlength="8">
+            <div class="pw-meter" aria-hidden="true"><span id="pwBar"></span></div>
+            <small class="form-hint" id="pwHint">Strong only: 8+ characters with a number and a symbol.</small>
+          </div>
+
+          <div class="form-inline">
+            <label class="check-label">
+              <input type="checkbox" id="remember" name="remember" required>
+              Keep me signed in
+            </label>
+            <small class="form-hint err" id="rememberHint" hidden>You must tick "Keep me signed in" to continue.</small>
+            <a href="404.html">Forgot password?</a>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block" id="loginSubmit">Log In</button>
+          <p class="form-msg" id="loginMsg" role="status" aria-live="polite"></p>
+        </form>
+
+        <p class="form-foot">New to Stackly? <a href="register.html">Create a client account</a></p>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

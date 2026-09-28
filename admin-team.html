@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en" class="dash-page">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="The Stackly team — roles, client assignments, capacity and who to assign new work to.">
+  <title>Team — Stackly Growth Console</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/webp" href="images/logo.webp">
+</head>
+<body>
+
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <div class="dash" id="dash">
+    <div class="dash-scrim" id="dashScrim"></div>
+
+    <!-- ===================== SIDEBAR ===================== -->
+    <aside class="dash-side" id="dashSide">
+      <div class="dash-side-head">
+        <a href="index.html" class="brand"><img src="images/logo.webp" alt="Stackly logo" class="brand-logo"></a>
+        <span class="dash-role">Admin</span>
+      </div>
+
+      <span class="dash-nav-label">Workspace</span>
+      <a class="dash-link" href="admin-dashboard.html">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 3h8v8H3V3Zm10 0h8v5h-8V3ZM3 13h8v8H3v-8Zm10 3h8v5h-8v-5Z"/></svg>
+        Overview
+      </a>
+      <a class="dash-link" href="admin-dashboard.html#clients">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M16 11a4 4 0 1 0-4-4 4 4 0 0 0 4 4Zm-8 1a3.5 3.5 0 1 0-3.5-3.5A3.5 3.5 0 0 0 8 12Zm8 1c-2.7 0-8 1.3-8 4v3h16v-3c0-2.7-5.3-4-8-4ZM8 13c-2.3 0-6 1.2-6 3.5V19h5v-3c0-1 .4-2 1.2-3Z"/></svg>
+        Clients <span class="dash-count">3</span>
+      </a>
+      <a class="dash-link" href="admin-campaigns.html">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 17h3l2 4h2l-2-4 9 1 4-4V6l-4 4-9 1 2-4H5L3 11v6Z"/></svg>
+        Campaigns
+      </a>
+      <a class="dash-link" href="admin-reports.html">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 20h16v2H4v-2Zm2-3h3v-6H6v6Zm5 0h3V5h-3v12Zm5 0h3v-9h-3v9Z"/></svg>
+        Reports
+      </a>
+      <a class="dash-link" href="admin-invoices.html">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 2h9l5 5v15l-3-2-2 2-2-2-2 2-2-2-3 2V2Zm8 2v4h4l-4-4Z"/></svg>
+        Invoices <span class="dash-count">2</span>
+      </a>
+      <a class="dash-link" href="admin-client-view.html">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5Zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5Z"/></svg>
+        Client view
+      </a>
+
+      <span class="dash-nav-label">Account</span>
+      <a class="dash-link active" href="admin-team.html" aria-current="page">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 8a4 4 0 1 0 4 4 4 4 0 0 0-4-4Zm9 4a8.9 8.9 0 0 1-.1 1.3l2.1 1.6-2 3.5-2.5-1a8.6 8.6 0 0 1-2.2 1.3l-.4 2.6h-4l-.4-2.6a8.6 8.6 0 0 1-2.2-1.3l-2.5 1-2-3.5L5.1 13a8.9 8.9 0 0 1 0-2.6L3 8.8l2-3.5 2.5 1a8.6 8.6 0 0 1 2.2-1.3L10.1 2h4l.4 2.6a8.6 8.6 0 0 1 2.2 1.3l2.5-1 2 3.5-2.1 1.6a8.9 8.9 0 0 1-.1 1.3Z"/></svg>
+        Team
+      </a>
+      <a class="dash-link" href="admin-settings.html">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 15.5A3.5 3.5 0 1 1 15.5 12 3.5 3.5 0 0 1 12 15.5Zm7.4-2.6.1-1-.1-1 2-1.6-2-3.4-2.4.9a7 7 0 0 0-1.7-1L14.9 3H9.1l-.4 2.8a7 7 0 0 0-1.7 1l-2.4-.9-2 3.4L4.7 11a8 8 0 0 0 0 2l-2.1 1.6 2 3.4 2.4-.9a7 7 0 0 0 1.7 1l.4 2.8h5.8l.4-2.8a7 7 0 0 0 1.7-1l2.4.9 2-3.4-2-1.6Z"/></svg>
+        Settings
+      </a>
+
+      <div class="dash-side-foot">
+        <div class="dash-user">
+          <span class="dash-avatar">RR</span>
+          <span class="dash-user-meta"><b>Riley Rowe</b><span>Agency owner</span></span>
+        </div>
+        <a class="dash-back" href="index.html">&larr; Back to stackly.agency</a>
+      </div>
+    </aside>
+
+    <!-- ===================== MAIN ===================== -->
+    <div class="dash-main">
+      <header class="dash-top">
+        <button class="dash-burger" id="dashBurger" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="dashSide"><span></span></button>
+        <div class="dash-title">
+          <h1>Team</h1>
+          <p>9 people &middot; 2 contractors &middot; 1 invite pending</p>
+        </div>
+        <div class="dash-top-actions">
+          <label class="dash-search">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15.5 14h-.8l-.3-.3a6.5 6.5 0 1 0-.7.7l.3.3v.8l5 5 1.5-1.5-5-5Zm-6 0a4.5 4.5 0 1 1 4.5-4.5 4.5 4.5 0 0 1-4.5 4.5Z"/></svg>
+            <input type="search" placeholder="Search people…" aria-label="Search people">
+          </label>
+          <button class="dash-icon-btn" type="button" aria-label="Notifications">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 22a2.5 2.5 0 0 0 2.5-2.5h-5A2.5 2.5 0 0 0 12 22Zm7-6v-5a7 7 0 0 0-5.5-6.8V3.5a1.5 1.5 0 0 0-3 0v.7A7 7 0 0 0 5 11v5l-2 2v1h18v-1l-2-2Z"/></svg>
+            <i class="dash-dot"></i>
+          </button>
+          <a class="btn btn-ghost" href="login.html">Sign out</a>
+        </div>
+      </header>
+
+      <div class="dash-body">
+        <div class="dash-kpis">
+          <article class="dash-kpi reveal-up animate">
+            <div class="dash-kpi-label">
+              Team members
+              <span class="dash-kpi-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5Zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5Z"/></svg></span>
+            </div>
+            <b class="dash-kpi-value">9</b>
+            <div class="dash-kpi-foot">7 full time &middot; 2 contractors</div>
+            <svg class="dash-spark" viewBox="0 0 120 34" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+              <polygon class="spark-fill" points="0,34 0,24 15,24 30,20 45,20 60,16 75,16 90,12 105,12 120,10 120,34"/>
+              <polyline points="0,24 15,24 30,20 45,20 60,16 75,16 90,12 105,12 120,10"/>
+            </svg>
+          </article>
+          <article class="dash-kpi reveal-up animate">
+            <div class="dash-kpi-label">
+              Client load
+              <span class="dash-kpi-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 20h16v2H4v-2Zm2-3h3v-6H6v6Zm5 0h3V5h-3v12Zm5 0h3v-9h-3v9Z"/></svg></span>
+            </div>
+            <b class="dash-kpi-value">1.6</b>
+            <div class="dash-kpi-foot">average accounts per strategist</div>
+            <svg class="dash-spark" viewBox="0 0 120 34" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+              <polygon class="spark-fill" points="0,34 0,22 15,20 30,21 45,17 60,18 75,15 90,13 105,12 120,10 120,34"/>
+              <polyline points="0,22 15,20 30,21 45,17 60,18 75,15 90,13 105,12 120,10"/>
+            </svg>
+          </article>
+          <article class="dash-kpi reveal-up animate">
+            <div class="dash-kpi-label">
+              Billable hours
+              <span class="dash-kpi-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm1 11h-5v-2h3V6h2v7Z"/></svg></span>
+            </div>
+            <b class="dash-kpi-value">612 h</b>
+            <div class="dash-kpi-foot">this month &middot; 84% utilisation</div>
+            <svg class="dash-spark" viewBox="0 0 120 34" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+              <polygon class="spark-fill" points="0,34 0,26 15,23 30,25 45,20 60,18 75,16 90,14 105,11 120,12 120,34"/>
+              <polyline points="0,26 15,23 30,25 45,20 60,18 75,16 90,14 105,11 120,12"/>
+            </svg>
+          </article>
+          <article class="dash-kpi reveal-up animate">
+            <div class="dash-kpi-label">
+              Open capacity
+              <span class="dash-kpi-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2Z"/></svg></span>
+            </div>
+            <b class="dash-kpi-value">126 h</b>
+            <div class="dash-kpi-foot">available before 30 November</div>
+            <svg class="dash-spark" viewBox="0 0 120 34" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+              <polygon class="spark-fill" points="0,34 0,20 15,18 30,19 45,16 60,17 75,14 90,15 105,12 120,13 120,34"/>
+              <polyline points="0,20 15,18 30,19 45,16 60,17 75,14 90,15 105,12 120,13"/>
+            </svg>
+          </article>
+        </div>
+
+        <section class="dash-card reveal-up animate">
+          <div class="dash-card-head">
+            <h3>People</h3>
+            <span>Who is on what</span>
+          </div>
+          <div class="dash-table-wrap">
+            <table class="dash-table">
+              <thead>
+                <tr>
+                  <th>Person</th>
+                  <th>Role</th>
+                  <th>Clients</th>
+                  <th>Utilisation</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td data-label=""><span class="dash-cell-user">
+                      <span class="dash-mini" style="background:linear-gradient(135deg,#7c5cff,#4d8dff)">RR</span>
+                      <span><b>Riley Rowe</b><span>riley@stackly.agency</span></span>
+                    </span></td>
+                  <td data-label="Role">Agency owner</td>
+                  <td data-label="Clients">All 14</td>
+                  <td data-label="Utilisation">62%</td>
+                  <td data-label="Status"><span class="dash-status live">Active</span></td>
+                </tr>
+                <tr>
+                  <td data-label=""><span class="dash-cell-user">
+                      <span class="dash-mini" style="background:linear-gradient(135deg,#37e6c0,#4d8dff)">MI</span>
+                      <span><b>Mara Ilves</b><span>mara@stackly.agency</span></span>
+                    </span></td>
+                  <td data-label="Role">Growth lead</td>
+                  <td data-label="Clients">NovaPay, Sable &amp; Co, Halcyon Labs</td>
+                  <td data-label="Utilisation">96%</td>
+                  <td data-label="Status"><span class="dash-status review">At capacity</span></td>
+                </tr>
+                <tr>
+                  <td data-label=""><span class="dash-cell-user">
+                      <span class="dash-mini" style="background:linear-gradient(135deg,#a5aacb,#7c5cff)">JT</span>
+                      <span><b>Jonas Terrell</b><span>jonas@stackly.agency</span></span>
+                    </span></td>
+                  <td data-label="Role">Media buyer</td>
+                  <td data-label="Clients">Lumen &amp; Beam, Ferndale Dental</td>
+                  <td data-label="Utilisation">88%</td>
+                  <td data-label="Status"><span class="dash-status live">Active</span></td>
+                </tr>
+                <tr>
+                  <td data-label=""><span class="dash-cell-user">
+                      <span class="dash-mini" style="background:linear-gradient(135deg,#37e6c0,#a5aacb)">PR</span>
+                      <span><b>Priya Raman</b><span>priya@stackly.agency</span></span>
+                    </span></td>
+                  <td data-label="Role">Media buyer</td>
+                  <td data-label="Clients">Kavira Apparel, Orchard Roasters</td>
+                  <td data-label="Utilisation">81%</td>
+                  <td data-label="Status"><span class="dash-status live">Active</span></td>
+                </tr>
+                <tr>
+                  <td data-label=""><span class="dash-cell-user">
+                      <span class="dash-mini" style="background:linear-gradient(135deg,#ffc84d,#ff5c7c)">DO</span>
+                      <span><b>Dara Okonkwo</b><span>dara@stackly.agency</span></span>
+                    </span></td>
+                  <td data-label="Role">Analyst</td>
+                  <td data-label="Clients">Reporting desk &middot; 9 accounts</td>
+                  <td data-label="Utilisation">74%</td>
+                  <td data-label="Status"><span class="dash-status live">Active</span></td>
+                </tr>
+                <tr>
+                  <td data-label=""><span class="dash-cell-user">
+                      <span class="dash-mini" style="background:linear-gradient(135deg,#4d8dff,#ffc84d)">HB</span>
+                      <span><b>Hugo Brandt</b><span>hugo@stackly.agency</span></span>
+                    </span></td>
+                  <td data-label="Role">CRO &amp; content</td>
+                  <td data-label="Clients">NovaPay, Lumen &amp; Beam</td>
+                  <td data-label="Utilisation">68%</td>
+                  <td data-label="Status"><span class="dash-status live">Active</span></td>
+                </tr>
+                <tr>
+                  <td data-label=""><span class="dash-cell-user">
+                      <span class="dash-mini" style="background:linear-gradient(135deg,#a5aacb,#37e6c0)">SF</span>
+                      <span><b>Sofia Fenn</b><span>sofia@stackly.agency</span></span>
+                    </span></td>
+                  <td data-label="Role">Designer &middot; contract</td>
+                  <td data-label="Clients">Lumen &amp; Beam, Kavira Apparel</td>
+                  <td data-label="Utilisation">52%</td>
+                  <td data-label="Status"><span class="dash-status live">Active</span></td>
+                </tr>
+                <tr>
+                  <td data-label=""><span class="dash-cell-user">
+                      <span class="dash-mini" style="background:linear-gradient(135deg,#ff5c7c,#a5aacb)">TN</span>
+                      <span><b>Tomas Novak</b><span>tomas@stackly.agency</span></span>
+                    </span></td>
+                  <td data-label="Role">Web developer &middot; contract</td>
+                  <td data-label="Clients">Ferndale Dental</td>
+                  <td data-label="Utilisation">40%</td>
+                  <td data-label="Status"><span class="dash-status paused">Paused</span></td>
+                </tr>
+                <tr>
+                  <td data-label=""><span class="dash-cell-user">
+                      <span class="dash-mini" style="background:linear-gradient(135deg,#37e6c0,#7c5cff)">EV</span>
+                      <span><b>Elena Voss</b><span>elena@stackly.agency</span></span>
+                    </span></td>
+                  <td data-label="Role">Client success</td>
+                  <td data-label="Clients">&mdash;</td>
+                  <td data-label="Utilisation">&mdash;</td>
+                  <td data-label="Status"><span class="dash-status review">Invited</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <div class="dash-split">
+          <section class="dash-card reveal-up animate">
+            <div class="dash-card-head">
+              <h3>Capacity by month</h3>
+              <span>Billable hours available</span>
+            </div>
+            <div class="dash-bars">
+              <div class="dash-bar-col"><div class="dash-bar" style="height:88%"></div><span class="dash-bar-label">Aug</span></div>
+              <div class="dash-bar-col"><div class="dash-bar" style="height:84%"></div><span class="dash-bar-label">Sep</span></div>
+              <div class="dash-bar-col"><div class="dash-bar" style="height:81%"></div><span class="dash-bar-label">Oct</span></div>
+              <div class="dash-bar-col"><div class="dash-bar" style="height:76%"></div><span class="dash-bar-label">Nov</span></div>
+              <div class="dash-bar-col"><div class="dash-bar" style="height:64%"></div><span class="dash-bar-label">Dec</span></div>
+            </div>
+          </section>
+
+          <section class="dash-card reveal-up animate">
+            <div class="dash-card-head">
+              <h3>Roles &amp; permissions</h3>
+              <span>Agency level</span>
+            </div>
+            <ul class="dash-list">
+              <li>
+                <span>
+                  <b>Agency owner</b>
+                  <span>Everything, including billing and team</span>
+                </span>
+                <span>Riley</span>
+              </li>
+              <li>
+                <span>
+                  <b>Growth lead</b>
+                  <span>Client console, reports and approvals</span>
+                </span>
+                <span>Mara</span>
+              </li>
+              <li>
+                <span>
+                  <b>Media buyer</b>
+                  <span>Campaigns, budgets and pacing</span>
+                </span>
+                <span>Jonas, Priya</span>
+              </li>
+              <li>
+                <span>
+                  <b>Analyst</b>
+                  <span>Reporting, exports and dashboards</span>
+                </span>
+                <span>Dara</span>
+              </li>
+              <li>
+                <span>
+                  <b>Contractor</b>
+                  <span>Assigned accounts only</span>
+                </span>
+                <span>Sofia, Tomas</span>
+              </li>
+            </ul>
+          </section>
+        </div>
+
+        <div class="dash-note reveal-up animate">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2a7 7 0 0 0-4 12.7V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.3A7 7 0 0 0 12 2Zm-2 18h4v1.5h-4V20Z"/></svg>
+          <div>
+            <b>Mara is at 96% utilisation with three accounts live</b>
+            <p>Two of the next 30 days are already committed, and Sable &amp; Co's CRO project lands in the same window. Either move the Ferndale retainer work to Jonas, or bring Sofia onto Sable &amp; Co for the design-heavy work &mdash; both are one click in Settings.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

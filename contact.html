@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact Stackly — book a free 30-minute strategy call or request a free audit of your funnel, ads and search footprint.">
+  <title>Contact — Stackly Digital Marketing</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/webp" href="images/logo.webp">
+</head>
+<body>
+
+  <div class="preloader" id="preloader">
+    <div class="preloader-logo">stackly<span class="dot">.</span></div>
+    <div class="preloader-bar"><span></span></div>
+  </div>
+
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <header class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="index.html" class="brand"><img src="images/logo.webp" alt="Stackly logo" class="brand-logo"></a>
+      <nav class="nav-menu" id="navMenu">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="services.html" class="nav-link">Services</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="work.html" class="nav-link">Work</a></li>
+          <li><a href="pricing.html" class="nav-link">Pricing</a></li>
+          <li><a href="faq.html" class="nav-link">FAQ</a></li>
+          <li><a href="contact.html" class="nav-link active">Contact</a></li>
+        </ul>
+        <a href="login.html" class="btn btn-ghost nav-login">Login</a>
+        <a href="register.html" class="btn btn-ghost nav-register">Register</a>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===================== PAGE HERO ===================== -->
+    <section class="page-hero">
+      <div class="hero-bg" aria-hidden="true">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="grid-overlay"></div>
+      </div>
+      <div class="container page-hero-inner">
+        <span class="kicker">Ready when you are</span>
+        <h1>Let's stack your next <span class="grad-text">growth spike</span></h1>
+        <p>Tell us your goal — we'll send back a free 30-minute strategy call within 24 hours, with a prioritised plan in writing within 48 hours of the call.</p>
+        <div class="stat-strip">
+          <div class="reveal-up animate"><b>&lt; 24h</b><span>Reply to every enquiry</span></div>
+          <div class="reveal-up animate"><b>30 min</b><span>Free strategy call</span></div>
+          <div class="reveal-up animate"><b>48h</b><span>Written plan after the call</span></div>
+          <div class="reveal-up animate"><b>$0</b><span>Cost of the audit</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== FORM + DETAILS ===================== -->
+    <section class="section">
+      <div class="container cta-inner">
+        <div class="form-card reveal-up animate">
+          <h1>Book your free call</h1>
+          <p class="form-lead">No pitch deck, no pressure. We review your funnel live and send the plan over whether or not you hire us.</p>
+
+          <form id="contactForm" novalidate>
+            <div class="field-row-2">
+              <div class="form-group">
+                <label for="name">Your name</label>
+                <input type="text" id="name" name="name" placeholder="AlexRivera" maxlength="16" pattern="[A-Za-z]{1,16}" inputmode="text" required autocomplete="name">
+                <small class="form-hint" id="nameHint">Letters only, up to 16 characters.</small>
+              </div>
+              <div class="form-group">
+                <label for="email">Work email</label>
+                <input type="email" id="email" name="email" placeholder="alex@company.com" inputmode="email" autocapitalize="off" spellcheck="false" required autocomplete="email">
+                <small class="form-hint" id="emailHint">We'll send the plan and audit to this inbox.</small>
+              </div>
+            </div>
+
+            <div class="field-row-2">
+              <div class="form-group">
+                <label for="company">Company</label>
+                <input type="text" id="company" name="company" placeholder="Acme Inc." autocomplete="organization">
+              </div>
+              <div class="form-group">
+                <label for="budget">Monthly budget</label>
+                <select id="budget" name="budget">
+                  <option value="" selected disabled>Select a range</option>
+                  <option>Under $1k</option>
+                  <option>$1k – $5k</option>
+                  <option>$5k – $15k</option>
+                  <option>$15k – $50k</option>
+                  <option>Over $50k</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="interest">I'm interested in…</label>
+              <select id="interest" name="interest" required>
+                <option value="" disabled selected>Choose a service</option>
+                <option>SEO &amp; Organic Growth</option>
+                <option>Performance Ads</option>
+                <option>Social Media Marketing</option>
+                <option>Brand &amp; Creative</option>
+                <option>Analytics &amp; CRO</option>
+                <option>Email &amp; Automation</option>
+                <option>Full-stack growth</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Tell us about your project</label>
+              <textarea id="message" name="message" rows="4" placeholder="What are you trying to fix, and what's the number you're aiming for?" required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block" id="contactSubmit">Book My Free Call →</button>
+            <p class="form-msg" id="formMsg" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+
+        <div class="cta-cards">
+          <a class="cta-card reveal-up animate" href="mailto:hello@stackly.agency">
+            <span class="cta-card-label">Email us</span>
+            <strong>hello@stackly.agency</strong>
+            <span class="cta-card-meta">Replies within one business day</span>
+          </a>
+          <a class="cta-card reveal-up animate" href="tel:+15551234567">
+            <span class="cta-card-label">Call the studio</span>
+            <strong>+1 (555) 123-4567</strong>
+            <span class="cta-card-meta">Mon–Fri, 9am–6pm PT</span>
+          </a>
+          <div class="cta-card reveal-up animate">
+            <span class="cta-card-label">Visit</span>
+            <strong>100 Growth Ave, Suite 21</strong>
+            <span class="cta-card-meta">San Francisco, CA 94107</span>
+          </div>
+          <div class="cta-card cta-card-social reveal-up animate">
+            <span class="cta-card-label">Follow the wins</span>
+            <div class="socials">
+              <a href="404.html" aria-label="X (Twitter)"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M17.53 3h3.02l-6.6 7.54L21.7 21h-5.86l-4.6-6.01L5.94 21H2.92l7.06-8.07L2.3 3h6.01l4.16 5.5L17.53 3Zm-1.06 16.17h1.67L7.62 4.74H5.83l10.64 14.43Z"/></svg></a>
+              <a href="404.html" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9.75h4v11.5H3V9.75Zm6.5 0h3.83v1.57h.06c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.77 2.5 4.77 5.76v6.12h-4v-5.43c0-1.29-.02-2.96-1.9-2.96-1.9 0-2.19 1.4-2.19 2.86v5.53h-4V9.75Z"/></svg></a>
+              <a href="404.html" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.2c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.8 3.8 0 0 1-1.38-.9 3.8 3.8 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.21 15.58 2.2 15.2 2.2 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.21 8.8 2.2 12 2.2Zm0 3.13A6.67 6.67 0 1 0 18.67 12 6.67 6.67 0 0 0 12 5.33Zm0 11A4.33 4.33 0 1 1 16.33 12 4.33 4.33 0 0 1 12 16.33Zm6.94-11.2a1.56 1.56 0 1 1-1.56-1.55 1.56 1.56 0 0 1 1.56 1.55Z"/></svg></a>
+              <a href="404.html" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21.58 7.19a2.51 2.51 0 0 0-1.77-1.77C18.25 5 12 5 12 5s-6.25 0-7.81.42a2.51 2.51 0 0 0-1.77 1.77A26.2 26.2 0 0 0 2 12a26.2 26.2 0 0 0 .42 4.81 2.51 2.51 0 0 0 1.77 1.77C5.75 19 12 19 12 19s6.25 0 7.81-.42a2.51 2.51 0 0 0 1.77-1.77A26.2 26.2 0 0 0 22 12a26.2 26.2 0 0 0-.42-4.81ZM10 15.02V8.98L15.2 12 10 15.02Z"/></svg></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== FIND THE STUDIO ===================== -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-head reveal-up animate">
+          <span class="kicker">Find the studio</span>
+          <h2>We're in <span class="grad-text">San Francisco</span></h2>
+          <p>Remote-first, with a door open for clients who'd rather talk in person. Come to SoMa — parking on 2nd.</p>
+        </div>
+        <div class="map-shell reveal-up animate">
+          <iframe
+            title="Map showing Stackly at 100 Growth Ave, Suite 21, San Francisco, CA 94107"
+            src="https://www.google.com/maps?q=100%20Growth%20Ave%2C%20San%20Francisco%2C%20CA%2094107&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen></iframe>
+          <div class="map-badge">
+            <span class="cta-card-label">Visit</span>
+            <strong>100 Growth Ave, Suite 21</strong>
+            <span class="cta-card-meta">San Francisco, CA 94107 · Mon–Fri, 9am–6pm PT</span>
+            <a class="btn btn-primary map-dirs" href="https://www.google.com/maps/dir/?api=1&amp;destination=100+Growth+Ave%2C+San+Francisco%2C+CA+94107" target="_blank" rel="noopener">Get directions ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== WHAT HAPPENS NEXT ===================== -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal-up animate">
+          <span class="kicker">What happens next</span>
+          <h2>From enquiry to <span class="grad-text">first win</span></h2>
+          <p>No mystery about where your enquiry goes.</p>
+        </div>
+        <div class="process-grid">
+          <div class="process-step reveal-up animate">
+            <span class="step-num">01</span>
+            <h3>We reply</h3>
+            <p>Within 24 hours, from the strategist who'd actually run your account — not an SDR.</p>
+          </div>
+          <div class="process-step reveal-up animate">
+            <span class="step-num">02</span>
+            <h3>Free audit</h3>
+            <p>30 minutes on a call. We screen-share your funnel, ads and search footprint live.</p>
+          </div>
+          <div class="process-step reveal-up animate">
+            <span class="step-num">03</span>
+            <h3>Written plan</h3>
+            <p>A prioritised 90-day roadmap in your inbox within 48 hours. Yours to keep either way.</p>
+          </div>
+          <div class="process-step reveal-up animate">
+            <span class="step-num">04</span>
+            <h3>You decide</h3>
+            <p>Start with one layer, or don't. Plenty of people take the plan and run it themselves.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== OTHER WAYS IN ===================== -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal-up animate">
+          <span class="kicker">Other ways in</span>
+          <h2>Prefer to <span class="grad-text">look around first?</span></h2>
+        </div>
+        <div class="process-grid">
+          <a class="process-step reveal-up animate" href="pricing.html">
+            <span class="step-num">$</span>
+            <h3>Compare pricing</h3>
+            <p>Full breakdown of every plan, à la carte services and one-off projects.</p>
+          </a>
+          <a class="process-step reveal-up animate" href="work.html">
+            <span class="step-num">↗</span>
+            <h3>Read the case studies</h3>
+            <p>See the actual numbers we produced for fintech, e-commerce and SaaS clients.</p>
+          </a>
+          <a class="process-step reveal-up animate" href="faq.html">
+            <span class="step-num">?</span>
+            <h3>Check the FAQ</h3>
+            <p>Answers on timelines, contracts, guarantees, reporting and ownership.</p>
+          </a>
+          <a class="process-step reveal-up animate" href="services.html">
+            <span class="step-num">✦</span>
+            <h3>Browse the services</h3>
+            <p>See what each layer actually covers — SEO, paid, lifecycle and analytics — before you talk to anyone.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="brand"><img src="images/logo.webp" alt="Stackly logo" class="brand-logo"></a>
+        <p>The digital marketing engine for ambitious brands.</p>
+        <div class="socials">
+          <a href="404.html" aria-label="X (Twitter)"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M17.53 3h3.02l-6.6 7.54L21.7 21h-5.86l-4.6-6.01L5.94 21H2.92l7.06-8.07L2.3 3h6.01l4.16 5.5L17.53 3Zm-1.06 16.17h1.67L7.62 4.74H5.83l10.64 14.43Z"/></svg></a>
+          <a href="404.html" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9.75h4v11.5H3V9.75Zm6.5 0h3.83v1.57h.06c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.77 2.5 4.77 5.76v6.12h-4v-5.43c0-1.29-.02-2.96-1.9-2.96-1.9 0-2.19 1.4-2.19 2.86v5.53h-4V9.75Z"/></svg></a>
+          <a href="404.html" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.2c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.8 3.8 0 0 1-1.38-.9 3.8 3.8 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.21 15.58 2.2 15.2 2.2 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.21 8.8 2.2 12 2.2Zm0 3.13A6.67 6.67 0 1 0 18.67 12 6.67 6.67 0 0 0 12 5.33Zm0 11A4.33 4.33 0 1 1 16.33 12 4.33 4.33 0 0 1 12 16.33Zm6.94-11.2a1.56 1.56 0 1 1-1.56-1.55 1.56 1.56 0 0 1 1.56 1.55Z"/></svg></a>
+          <a href="404.html" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21.58 7.19a2.51 2.51 0 0 0-1.77-1.77C18.25 5 12 5 12 5s-6.25 0-7.81.42a2.51 2.51 0 0 0-1.77 1.77A26.2 26.2 0 0 0 2 12a26.2 26.2 0 0 0 .42 4.81 2.51 2.51 0 0 0 1.77 1.77C5.75 19 12 19 12 19s6.25 0 7.81-.42a2.51 2.51 0 0 0 1.77-1.77A26.2 26.2 0 0 0 22 12a26.2 26.2 0 0 0-.42-4.81ZM10 15.02V8.98L15.2 12 10 15.02Z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <a href="services.html">SEO</a>
+        <a href="services.html">Paid Ads</a>
+        <a href="services.html">Social Media</a>
+        <a href="services.html">Email &amp; Automation</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="about.html">About</a>
+        <a href="work.html">Case Studies</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="contact.html">Careers</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="404.html">hello@stackly.agency</a>
+        <a href="404.html">+1 (555) 123-4567</a>
+        <span class="footer-addr">100 Growth Ave, Suite 21<br>San Francisco, CA</span>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Stackly Agency. All rights reserved.</span>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

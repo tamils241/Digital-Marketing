@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en" class="dash-page">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Preview the client-facing growth console for any Stackly account before a client sees changes, and jump straight to their workspace.">
+  <title>Client view — Stackly Growth Console</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/webp" href="images/logo.webp">
+</head>
+<body>
+
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <div class="dash" id="dash">
+    <div class="dash-scrim" id="dashScrim"></div>
+
+    <!-- ===================== SIDEBAR ===================== -->
+    <aside class="dash-side" id="dashSide">
+      <div class="dash-side-head">
+        <a href="index.html" class="brand"><img src="images/logo.webp" alt="Stackly logo" class="brand-logo"></a>
+        <span class="dash-role">Admin</span>
+      </div>
+
+      <span class="dash-nav-label">Workspace</span>
+      <a class="dash-link" href="admin-dashboard.html">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 3h8v8H3V3Zm10 0h8v5h-8V3ZM3 13h8v8H3v-8Zm10 3h8v5h-8v-5Z"/></svg>
+        Overview
+      </a>
+      <a class="dash-link" href="admin-dashboard.html#clients">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M16 11a4 4 0 1 0-4-4 4 4 0 0 0 4 4Zm-8 1a3.5 3.5 0 1 0-3.5-3.5A3.5 3.5 0 0 0 8 12Zm8 1c-2.7 0-8 1.3-8 4v3h16v-3c0-2.7-5.3-4-8-4ZM8 13c-2.3 0-6 1.2-6 3.5V19h5v-3c0-1 .4-2 1.2-3Z"/></svg>
+        Clients <span class="dash-count">3</span>
+      </a>
+      <a class="dash-link" href="admin-campaigns.html">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 17h3l2 4h2l-2-4 9 1 4-4V6l-4 4-9 1 2-4H5L3 11v6Z"/></svg>
+        Campaigns
+      </a>
+      <a class="dash-link" href="admin-reports.html">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 20h16v2H4v-2Zm2-3h3v-6H6v6Zm5 0h3V5h-3v12Zm5 0h3v-9h-3v9Z"/></svg>
+        Reports
+      </a>
+      <a class="dash-link" href="admin-invoices.html">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 2h9l5 5v15l-3-2-2 2-2-2-2 2-2-2-3 2V2Zm8 2v4h4l-4-4Z"/></svg>
+        Invoices <span class="dash-count">2</span>
+      </a>
+      <a class="dash-link active" href="admin-client-view.html" aria-current="page">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5Zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5Z"/></svg>
+        Client view
+      </a>
+
+      <span class="dash-nav-label">Account</span>
+      <a class="dash-link" href="admin-team.html">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 8a4 4 0 1 0 4 4 4 4 0 0 0-4-4Zm9 4a8.9 8.9 0 0 1-.1 1.3l2.1 1.6-2 3.5-2.5-1a8.6 8.6 0 0 1-2.2 1.3l-.4 2.6h-4l-.4-2.6a8.6 8.6 0 0 1-2.2-1.3l-2.5 1-2-3.5L5.1 13a8.9 8.9 0 0 1 0-2.6L3 8.8l2-3.5 2.5 1a8.6 8.6 0 0 1 2.2-1.3L10.1 2h4l.4 2.6a8.6 8.6 0 0 1 2.2 1.3l2.5-1 2 3.5-2.1 1.6a8.9 8.9 0 0 1-.1 1.3Z"/></svg>
+        Team
+      </a>
+      <a class="dash-link" href="admin-settings.html">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 15.5A3.5 3.5 0 1 1 15.5 12 3.5 3.5 0 0 1 12 15.5Zm7.4-2.6.1-1-.1-1 2-1.6-2-3.4-2.4.9a7 7 0 0 0-1.7-1L14.9 3H9.1l-.4 2.8a7 7 0 0 0-1.7 1l-2.4-.9-2 3.4L4.7 11a8 8 0 0 0 0 2l-2.1 1.6 2 3.4 2.4-.9a7 7 0 0 0 1.7 1l.4 2.8h5.8l.4-2.8a7 7 0 0 0 1.7-1l2.4.9 2-3.4-2-1.6Z"/></svg>
+        Settings
+      </a>
+
+      <div class="dash-side-foot">
+        <div class="dash-user">
+          <span class="dash-avatar">RR</span>
+          <span class="dash-user-meta"><b>Riley Rowe</b><span>Agency owner</span></span>
+        </div>
+        <a class="dash-back" href="index.html">&larr; Back to stackly.agency</a>
+      </div>
+    </aside>
+
+    <!-- ===================== MAIN ===================== -->
+    <div class="dash-main">
+      <header class="dash-top">
+        <button class="dash-burger" id="dashBurger" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="dashSide"><span></span></button>
+        <div class="dash-title">
+          <h1>Client view</h1>
+          <p>Preview any account exactly as the client sees it &middot; 14 accounts</p>
+        </div>
+        <div class="dash-top-actions">
+          <label class="dash-search">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15.5 14h-.8l-.3-.3a6.5 6.5 0 1 0-.7.7l.3.3v.8l5 5 1.5-1.5-5-5Zm-6 0a4.5 4.5 0 1 1 4.5-4.5 4.5 4.5 0 0 1-4.5 4.5Z"/></svg>
+            <input type="search" placeholder="Search accounts…" aria-label="Search accounts">
+          </label>
+          <button class="dash-icon-btn" type="button" aria-label="Notifications">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 22a2.5 2.5 0 0 0 2.5-2.5h-5A2.5 2.5 0 0 0 12 22Zm7-6v-5a7 7 0 0 0-5.5-6.8V3.5a1.5 1.5 0 0 0-3 0v.7A7 7 0 0 0 5 11v5l-2 2v1h18v-1l-2-2Z"/></svg>
+            <i class="dash-dot"></i>
+          </button>
+          <a class="btn btn-ghost" href="login.html">Sign out</a>
+        </div>
+      </header>
+
+      <div class="dash-body">
+        <div class="dash-kpis">
+          <article class="dash-kpi reveal-up animate">
+            <div class="dash-kpi-label">
+              Active accounts
+              <span class="dash-kpi-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5Zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5Z"/></svg></span>
+            </div>
+            <b class="dash-kpi-value">14</b>
+            <div class="dash-kpi-foot">3 on a 90-day ramp &middot; 2 in onboarding</div>
+            <svg class="dash-spark" viewBox="0 0 120 34" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+              <polygon class="spark-fill" points="0,34 0,26 15,24 30,25 45,21 60,19 75,17 90,14 105,14 120,12 120,34"/>
+              <polyline points="0,26 15,24 30,25 45,21 60,19 75,17 90,14 105,14 120,12"/>
+            </svg>
+          </article>
+          <article class="dash-kpi reveal-up animate">
+            <div class="dash-kpi-label">
+              Managed revenue
+              <span class="dash-kpi-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm1 17h-2v-1.2a6.5 6.5 0 0 1-5.2-6.4h2a4.5 4.5 0 0 0 3.2 4.2V14a2 2 0 0 0-2 2v1h2Z"/></svg></span>
+            </div>
+            <b class="dash-kpi-value">$1.84m</b>
+            <div class="dash-kpi-foot"><span class="dash-delta up">&uarr; 12.4%</span> trailing 12 months</div>
+            <svg class="dash-spark" viewBox="0 0 120 34" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+              <polygon class="spark-fill" points="0,34 0,27 15,24 30,25 45,19 60,21 75,15 90,16 105,9 120,11 120,34"/>
+              <polyline points="0,27 15,24 30,25 45,19 60,21 75,15 90,16 105,9 120,11"/>
+            </svg>
+          </article>
+          <article class="dash-kpi reveal-up animate">
+            <div class="dash-kpi-label">
+              Avg. retention
+              <span class="dash-kpi-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2Z"/></svg></span>
+            </div>
+            <b class="dash-kpi-value">11.4 mo</b>
+            <div class="dash-kpi-foot">no churn in the last 6 months</div>
+            <svg class="dash-spark" viewBox="0 0 120 34" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+              <polygon class="spark-fill" points="0,34 0,20 15,20 30,18 45,18 60,15 75,15 90,12 105,12 120,10 120,34"/>
+              <polyline points="0,20 15,20 30,18 45,18 60,15 75,15 90,12 105,12 120,10"/>
+            </svg>
+          </article>
+          <article class="dash-kpi reveal-up animate">
+            <div class="dash-kpi-label">
+              Client NPS
+              <span class="dash-kpi-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8Zm0-14a6 6 0 1 0 6 6 6 6 0 0 0-6-6Zm0 10a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm0-6a2 2 0 1 0 2 2 2 2 0 0 0-2-2Z"/></svg></span>
+            </div>
+            <b class="dash-kpi-value">72</b>
+            <div class="dash-kpi-foot">12 responses &middot; target is 60</div>
+            <svg class="dash-spark" viewBox="0 0 120 34" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+              <polygon class="spark-fill" points="0,34 0,22 15,20 30,21 45,18 60,15 75,16 90,12 105,13 120,9 120,34"/>
+              <polyline points="0,22 15,20 30,21 45,18 60,15 75,16 90,12 105,13 120,9"/>
+            </svg>
+          </article>
+        </div>
+
+        <section class="dash-card reveal-up animate">
+          <div class="dash-card-head">
+            <h3>Accounts</h3>
+            <span>Click a client to open their console</span>
+          </div>
+          <div class="dash-table-wrap">
+            <table class="dash-table">
+              <thead>
+                <tr>
+                  <th>Account</th>
+                  <th>Plan</th>
+                  <th>Owner</th>
+                  <th>Monthly value</th>
+                  <th>Health</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td data-label=""><span class="dash-cell-user"><span class="dash-mini" style="background:linear-gradient(135deg,#7c5cff,#4d8dff)">NP</span><span><b>NovaPay</b><span>novapay.com &middot; 14 members in console</span></span></span></td>
+                  <td data-label="Plan">Growth+</td>
+                  <td data-label="Owner"><span class="dash-cell-user">
+                      <span class="dash-mini" style="background:linear-gradient(135deg,#37e6c0,#4d8dff)">MI</span>
+                      <span><b>Mara Ilves</b><span></span></span>
+                    </span></td>
+                  <td data-label="Value">$6,500 retainer</td>
+                  <td data-label="Health"><span class="dash-status live">Healthy</span></td>
+                </tr>
+                <tr>
+                  <td data-label=""><span class="dash-cell-user"><span class="dash-mini" style="background:linear-gradient(135deg,#4d8dff,#37e6c0)">LB</span><span><b>Lumen &amp; Beam</b><span>lumenandbeam.co &middot; 6 members</span></span></span></td>
+                  <td data-label="Plan">Scale</td>
+                  <td data-label="Owner"><span class="dash-cell-user">
+                      <span class="dash-mini" style="background:linear-gradient(135deg,#a5aacb,#7c5cff)">JT</span>
+                      <span><b>Jonas Terrell</b><span></span></span>
+                    </span></td>
+                  <td data-label="Value">$8,200 retainer</td>
+                  <td data-label="Health"><span class="dash-status live">Healthy</span></td>
+                </tr>
+                <tr>
+                  <td data-label=""><span class="dash-cell-user"><span class="dash-mini" style="background:linear-gradient(135deg,#ffc84d,#ff5c7c)">KA</span><span><b>Kavira Apparel</b><span>kavira.com &middot; 3 members</span></span></span></td>
+                  <td data-label="Plan">Growth</td>
+                  <td data-label="Owner"><span class="dash-cell-user">
+                      <span class="dash-mini" style="background:linear-gradient(135deg,#37e6c0,#a5aacb)">PR</span>
+                      <span><b>Priya Raman</b><span></span></span>
+                    </span></td>
+                  <td data-label="Value">$4,650 retainer</td>
+                  <td data-label="Health"><span class="dash-status review">Watch</span></td>
+                </tr>
+                <tr>
+                  <td data-label=""><span class="dash-cell-user"><span class="dash-mini" style="background:linear-gradient(135deg,#37e6c0,#a5aacb)">OR</span><span><b>Orchard Roasters</b><span>orchardroasters.com &middot; 2 members</span></span></span></td>
+                  <td data-label="Plan">Launch</td>
+                  <td data-label="Owner"><span class="dash-cell-user">
+                      <span class="dash-mini" style="background:linear-gradient(135deg,#37e6c0,#a5aacb)">PR</span>
+                      <span><b>Priya Raman</b><span></span></span>
+                    </span></td>
+                  <td data-label="Value">$4,000 project</td>
+                  <td data-label="Health"><span class="dash-status risk">At risk</span></td>
+                </tr>
+                <tr>
+                  <td data-label=""><span class="dash-cell-user"><span class="dash-mini" style="background:linear-gradient(135deg,#a5aacb,#7c5cff)">FD</span><span><b>Ferndale Dental</b><span>ferndaledental.com &middot; 4 members</span></span></span></td>
+                  <td data-label="Plan">Growth</td>
+                  <td data-label="Owner"><span class="dash-cell-user">
+                      <span class="dash-mini" style="background:linear-gradient(135deg,#a5aacb,#7c5cff)">JT</span>
+                      <span><b>Jonas Terrell</b><span></span></span>
+                    </span></td>
+                  <td data-label="Value">$5,800 retainer</td>
+                  <td data-label="Health"><span class="dash-status live">Healthy</span></td>
+                </tr>
+                <tr>
+                  <td data-label=""><span class="dash-cell-user"><span class="dash-mini" style="background:linear-gradient(135deg,#4d8dff,#ffc84d)">SC</span><span><b>Sable &amp; Co</b><span>sableandco.com &middot; 5 members</span></span></span></td>
+                  <td data-label="Plan">Growth+</td>
+                  <td data-label="Owner"><span class="dash-cell-user">
+                      <span class="dash-mini" style="background:linear-gradient(135deg,#37e6c0,#4d8dff)">MI</span>
+                      <span><b>Mara Ilves</b><span></span></span>
+                    </span></td>
+                  <td data-label="Value">$7,400 retainer</td>
+                  <td data-label="Health"><span class="dash-status review">Watch</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <div class="dash-split">
+          <section class="dash-card reveal-up animate">
+            <div class="dash-card-head">
+              <h3>What the client sees</h3>
+              <span>Console surface</span>
+            </div>
+            <ul class="dash-list">
+              <li><span><b>Overview</b><span>KPI cards, lead trend and live activity feed</span></span><span>client-dashboard.html</span></li>
+              <li><span><b>Campaigns</b><span>Spend, CPA, ROAS and status per campaign</span></span><span>client-campaigns.html</span></li>
+              <li><span><b>Leads</b><span>Sources, qualification rate and recent leads</span></span><span>client-leads.html</span></li>
+              <li><span><b>Reports</b><span>Library, monthly close and recent wins</span></span><span>client-reports.html</span></li>
+              <li><span><b>Billing</b><span>Retainer, budget pacing and invoice history</span></span><span>client-billing.html</span></li>
+              <li><span><b>Admin view</b><span>Their own team, roles and connected sources</span></span><span>client-admin.html</span></li>
+            </ul>
+          </section>
+
+          <section class="dash-card reveal-up animate">
+            <div class="dash-card-head">
+              <h3>Housekeeping</h3>
+              <span>Before a walkthrough</span>
+            </div>
+            <ul class="dash-list">
+              <li>
+                <span>
+                  <b>Unread client replies</b>
+                  <span>3 threads &middot; oldest 18 hours</span>
+                </span>
+                <span><span class="dash-status review">Open</span></span>
+              </li>
+              <li>
+                <span>
+                  <b>Pending sign-offs</b>
+                  <span>3 reports waiting on the client</span>
+                </span>
+                <span><span class="dash-status review">Open</span></span>
+              </li>
+              <li>
+                <span>
+                  <b>Expired connections</b>
+                  <span>1 account needs reauthorising</span>
+                </span>
+                <span><span class="dash-status risk">Action</span></span>
+              </li>
+              <li>
+                <span>
+                  <b>Upcoming renewals</b>
+                  <span>2 in the next 30 days</span>
+                </span>
+                <span><span class="dash-status live">On track</span></span>
+              </li>
+            </ul>
+          </section>
+        </div>
+
+        <div class="dash-note reveal-up animate">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2a7 7 0 0 0-4 12.7V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.3A7 7 0 0 0 12 2Zm-2 18h4v1.5h-4V20Z"/></svg>
+          <div>
+            <b>Client view is a read-only preview</b>
+            <p>Opening a client console from here shows exactly what they see, including the same responsive layout on tablet and mobile. Editing, billing and access changes still have to be made from <a class="btn btn-ghost" href="admin-settings.html">Settings</a> so there is always one audit trail.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
